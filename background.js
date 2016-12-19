@@ -1,12 +1,33 @@
-function printBookmarks(id) {
+/*function printBookmarks(id) {
  chrome.bookmarks.getChildren(id, function(children) {
     children.forEach(function(bookmark) {
-      console.log(bookmark.title);
+
+      chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+      	if(tabs[0].url === bookmark.url )
+      	{
+      		console.log("Chirag");
+      	}
+      });
       printBookmarks(bookmark.id);
     });
  });
 }
 
-chrome.browserAction.onClicked.addListener( function(tab) {
-  printBookmarks('0');
+printBookmarks('0');
+*/
+var options = {
+	type: "image",
+	title: "Read-Later",
+	message: "You are scheduled to read an article",
+	iconUrl: "icon.png",
+	
+	buttons: [{
+		title: "Open Bookmark"
+	}],
+	imageUrl: "icon.png"
+};
+
+chrome.notifications.create(options);
+chrome.notifications.onButtonClicked.addListener(function(){
+	window.open("https://www.facebook.com/"); //needs to be replaced by url of site...
 });
