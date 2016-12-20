@@ -25,6 +25,7 @@
 		"bookmarks",
 		"activeTab",
 		"tabs",
-		"notifications"
+		"notifications",
+		"storage"
 	]
 }
