@@ -16,7 +16,7 @@
 printBookmarks('0');
 */
 var options = {
-	type: "image",
+	type: "basic",
 	title: "Read-Later",
 	message: "You are scheduled to read an article",
 	iconUrl: "icon.png",
@@ -24,7 +24,7 @@ var options = {
 	buttons: [{
 		title: "Open Bookmark"
 	}],
-	imageUrl: "icon.png"
+	//imageUrl: "icon.png"
 };
 
 chrome.notifications.create(options);
