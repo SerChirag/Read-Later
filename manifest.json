@@ -1,5 +1,5 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 6,
 
 	"name": "Read Later",
 	"description": "This extension notifies you to view a page later",
@@ -24,6 +24,7 @@
 	"permissions": [
 		"bookmarks",
 		"activeTab",
+		"alarms",
 		"tabs",
 		"notifications",
 		"storage"

@@ -26,8 +26,21 @@ var options = {
 	}],
 	//imageUrl: "icon.png"
 };
+chrome.alarms.onAlarm.addListener(function(e){
+	if(e.name== "notification_delay")
+	{
+		chrome.notifications.create(options);
+    	chrome.notifications.onButtonClicked.addListener(function(){
+    		window.open("https://www.facebook.com/"); //needs to be replaced by url of site...
+    	});
 
-chrome.notifications.create(options);
+
+
+	}
+	
+});
+
+/*chrome.notifications.create(options);
 chrome.notifications.onButtonClicked.addListener(function(){
 	window.open("https://www.facebook.com/"); //needs to be replaced by url of site...
-});
+});*/

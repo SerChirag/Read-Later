@@ -8,7 +8,7 @@
 */
 var count=0;
 var storage = chrome.storage.sync;
-var sumbit = document.getElementById("submt");
+var sumbit = document.getElementById("submit");
 
 submit.addEventListener("click", function(){
   chrome.tabs.getSelected(null, function(tab){
@@ -18,11 +18,25 @@ submit.addEventListener("click", function(){
     var url = tab.url;
     var newlink;
     var i =0;
-    for (i=0;i<5;i++)
+    /*for (i=0;i<5;i++)
     {
       newlink = {"count":i, "url": url ,"title":title,"time":time,"date":date};
       localStorage.setItem(i, JSON.stringify(newlink));
-    }   
+    }*/
+    var dl = date.split("-");
+    var tl = time.split(":");
+    var g = new Date();
+    var f = new Date();
+    var currentTimeZoneOffsetInHours = f.getTimezoneOffset()*60000;
+    
+    g = Date.UTC(+dl[0], dl[1]-1, +dl[2], +tl[0], +tl[1], +0, +0);
+    //alert(Date(f.getTime()));
+    var lapse = (g - Date.now() + currentTimeZoneOffsetInHours);
+    chrome.alarms.create("notification_delay",{
+      "when": Date.now() + lapse
+
+    })
+    alert("Success");
     
   });
 });
