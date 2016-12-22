@@ -1,12 +1,13 @@
 
 window.onload = function(){
   var newlink;
-  var i;
   var table = document.getElementById("links");
   var tr = document.createElement('tr');
-  for (i=0;i<5;i++)
+  var i =0;
+  var newlink = JSON.parse(localStorage.getItem(i));
+  while(newlink!=null)
   {
-    var newlink = JSON.parse(localStorage.getItem(i));
+    console.log(i);    
     var title = newlink.title;
     var url = newlink.url;
     var date = newlink.date;
@@ -26,5 +27,8 @@ window.onload = function(){
     tr.cells[4].appendChild( document.createTextNode(time));
  
     table.appendChild(tr);
+    i+=1;
+    var newlink = JSON.parse(localStorage.getItem(i));
+    
   }  
 };
